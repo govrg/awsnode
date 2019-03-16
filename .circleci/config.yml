@@ -1,0 +1,39 @@
+version: 2 # use CircleCI 2.0
+jobs:
+  build:
+    docker: # run the steps with Docker
+      - image: circleci/node:8.11.1 # ...with this image as the primary container; this is where all `steps` will run
+    steps:
+      - checkout # special step to check out source code to working directory
+      - restore_cache: # special step to restore the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+      - run:
+          name: install-npm
+          command: npm install
+      - save_cache: # special step to save the dependency cache
+          key: dependency-cache-{{ checksum "package.json" }}
+          paths:
+            - ./node_modules
+      - run: # run tests
+          name: test
+          #command: sudo npm test
+          command: node ./node_modules/mocha/bin/mocha test/\*.test.js --reporter mocha-junit-reporter
+      - store_artifacts: # special step to save test results as as artifact
+          # Upload test summary for display in Artifacts: https://circleci.com/docs/2.0/artifacts/ 
+          path: test-results.xml
+          prefix: tests
+      - store_test_results:
+          path: test-results.xml
+      - run: 
+          name: Create image on dockerhub
+          command: curl -H 'Content-Type:application/json' --data '{"build":true}' -X POST $TRIGGER_DOCKER_AWSNODE
+      - run: sudo apt-get install -y sudo
+      - run:
+         name: Install PIP
+         command: sudo apt-get install python-pip python-dev
+      - run:
+         name: Install awscli
+         command: sudo pip install awscli
+      - run: 
+         name: deploy aws buid template
+         command: sh ./deploy.sh

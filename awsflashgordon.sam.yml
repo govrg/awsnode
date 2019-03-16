@@ -1,0 +1,32 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: AWS nodejs app
+
+Parameters:
+
+  MissMode:
+    Description: How to treat misses
+    Type: String
+    AllowedValues:
+      - Proxy
+      - Info
+
+Resources:
+
+  AwsFlashFunction:
+    Type: AWS::Serverless::Function
+    Properties:
+      Runtime: nodejs8.10
+      Handler: index.handler
+      CodeUri: .
+      MemorySize: 1536
+      Timeout: 30
+      Environment:
+        Variables:
+          miss_mode: !Ref MissMode
+      Events:
+        GetResource:
+          Type: Api
+          Properties:
+            Path: /{proxy+}
+            Method: any
