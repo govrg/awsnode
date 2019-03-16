@@ -1,7 +1,6 @@
 'use strict';
 
 const expect = require("chai").expect;
-//const converter = require("../index");
 
 describe("Calculate sum", function() {
   describe("2+1=3", function() {
