@@ -1,7 +1,7 @@
 version: 2 # use CircleCI 2.0
 jobs:
   build:
-    docker: # run the steps with Docker
+    docker: 
       - image: circleci/node:8.11.1 # ...with this image as the primary container; this is where all `steps` will run
     steps:
       - checkout # special step to check out source code to working directory
