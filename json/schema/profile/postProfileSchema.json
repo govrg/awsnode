@@ -1,0 +1,119 @@
+{
+  "definitions": {},
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "http://example.com/root.json",
+  "type": "object",
+  "title": "The Root Schema",
+  "required": [
+    "SessionContext",
+    "UserId",
+    "responseHeaders"
+  ],
+  "properties": {
+    "SessionContext": {
+      "$id": "#/properties/SessionContext",
+      "type": "object",
+      "title": "The Sessioncontext Schema",
+      "required": [
+        "UserType",
+        "UserId",
+        "UserName",
+        "EmailAddress",
+        "PreviousUserSessionDateTime",
+        "ICMPartyUID"
+      ],
+      "properties": {
+        "UserType": {
+          "$id": "#/properties/SessionContext/properties/UserType",
+          "type": "string",
+          "title": "The Usertype Schema",
+          "default": "",
+          "examples": [
+            "R"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "UserId": {
+          "$id": "#/properties/SessionContext/properties/UserId",
+          "type": "string",
+          "title": "The Userid Schema",
+          "default": "",
+          "examples": [
+            "2672676455"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "UserName": {
+          "$id": "#/properties/SessionContext/properties/UserName",
+          "type": "string",
+          "title": "The Username Schema",
+          "default": "",
+          "examples": [
+            "gv gv"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "EmailAddress": {
+          "$id": "#/properties/SessionContext/properties/EmailAddress",
+          "type": "string",
+          "title": "The Emailaddress Schema",
+          "default": "",
+          "examples": [
+            "sv_test_02@gmail.com"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "PreviousUserSessionDateTime": {
+          "$id": "#/properties/SessionContext/properties/PreviousUserSessionDateTime",
+          "type": "string",
+          "title": "The Previoususersessiondatetime Schema",
+          "default": "",
+          "examples": [
+            "2018-11-24Z"
+          ],
+          "pattern": "^(.*)$"
+        },
+        "ICMPartyUID": {
+          "$id": "#/properties/SessionContext/properties/ICMPartyUID",
+          "type": "string",
+          "title": "The Icmpartyuid Schema",
+          "default": "",
+          "examples": [
+            "BC8AD25F-EFEA-11e8-8CAC-005056984FDD"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    },
+    "UserId": {
+      "$id": "#/properties/UserId",
+      "type": "string",
+      "title": "The Userid Schema",
+      "default": "",
+      "examples": [
+        "2672676455"
+      ],
+      "pattern": "^(.*)$"
+    },
+    "responseHeaders": {
+      "$id": "#/properties/responseHeaders",
+      "type": "object",
+      "title": "The Responseheaders Schema",
+      "required": [
+        "Set-Cookie"
+      ],
+      "properties": {
+        "Set-Cookie": {
+          "$id": "#/properties/responseHeaders/properties/Set-Cookie",
+          "type": "string",
+          "title": "The Set-cookie Schema",
+          "default": "",
+          "examples": [
+            "WC_PERSISTENT=ld9vlntNXo7phyZ5GxGVnyDmf8inWtDmecWwyD2KIPw%3D%3B2018-11-24+14%3A53%3A18.733_1543071198733-264418_0; Expires=Sun, 24-Nov-19 14:53:18 GMT; Path=/; Domain=.ikea.com,PRICESEXCLVAT=disabled; Path=/; Domain=.ikea.com,IRWStats.trailingTag=IRWStats.memberLoggedIn,private|; Path=/; Domain=.ikea.com,WC_SESSION_ESTABLISHED=true; Path=/; Domain=.ikea.com,WC_PERSISTENT=yZBQ4jmDM6BT%2F7Q8R3FzJqXr%2BvWf4TOvj6sOb8nLJ4s%3D%3B2018-11-24+14%3A53%3A19.175_1543071198733-264418_2; Expires=Sun, 24-Nov-19 14:53:18 GMT; Path=/; Domain=.ikea.com,WC_AUTHENTICATION_2672676455=2672676455%2CSbSxCCMgOA6uK6LN4hB%2B5p6i0T3c%2F2VsZlNGXgQ%2Fc0Y%3D; Path=/; Domain=.ikea.com,WC_ACTIVEPOINTER=-11%2C2; Path=/; Domain=.ikea.com,WC_USERACTIVITY_2672676455=2672676455%2C2%2C0%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2Cnull%2C1456927074%2Cj5NsNOF3Y5ucC8l1LOeYX7xTRxteeCDp4Z6RN4ZEI5z4XW3p5WdmWiHObR%2Fr%2BkknKPaga5MZvCMgGBkIOAZSvrIxKmrk6FFMZHe9BKnhbVwGcYlXs08ks4%2FZmBPCbERJeIi8vK5Ychk3UUKJXaYyrMt%2B1sq9g44C62ERteQd617dRmkxEbgVR9Wu1VLWL3fn20wWtYFvW%2BQ44gdpjB6LKJHzZB7JlCVFi%2FbzlNntcs8Wzu3oNRfHjSwvo6gMEdOw; Path=/; Domain=.ikea.com"
+          ],
+          "pattern": "^(.*)$"
+        }
+      }
+    }
+  }
+}
